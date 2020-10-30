@@ -1,0 +1,5 @@
+export const IssuesActions = {
+    ISSUES_LOAD_REQUEST: 'issues/ISSUES_LOAD_REQUEST',
+    ISSUES_LOAD_FAILURE: 'issues/ISSUES_LOAD_FAILURE',
+    ISSUES_LOAD_SUCCESS: 'issues/ISSUES_LOAD_SUCCESS',
+}
