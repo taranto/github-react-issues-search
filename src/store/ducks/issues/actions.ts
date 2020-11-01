@@ -17,16 +17,22 @@ export const loadIssueTitlesSuccess = (data: any) =>
 
 export const getIssues = (filter: any) => {
     return (dispatch: any) => {
-        // console.debug('c')
         const graphQLQuery = {
             query: `{
-                search(query: "repo:Facebook/React in:title ${filter}", type: ISSUE, first: 10) {
+                search(query: "repo:Facebook/React in:title ${filter}", type: ISSUE, first: 20) {
                     nodes {
                         ... on Issue {
                             number
                             title
                             url
                             state
+                            body
+                            createdAt
+                            author {
+                                login
+                                avatarUrl
+                                url
+                            }
                             labels(first:5) {
                                 edges {
                                     node {
@@ -42,7 +48,6 @@ export const getIssues = (filter: any) => {
         dispatch(loadIssuesRequest())
         githubService(graphQLQuery).then((result: any) => {
             const arrayIssues = result?.data?.data.search.nodes.filter((aNode: any) => !!aNode.title)
-            console.debug('d' + JSON.stringify(arrayIssues))
             dispatch(loadIssuesSuccess({ arrayIssues }))
         }).catch((e: any) => {
             dispatch(loadIssuesFailure())
@@ -61,7 +66,7 @@ export const getIssueTitles = (filter: any) => {
         }
         const graphQLQuery = {
             query: `{
-                search(query: "repo:Facebook/React in:title ${filter}", type: ISSUE, first: 10) {
+                search(query: "repo:Facebook/React in:title ${filter}", type: ISSUE, first: 20) {
                     nodes {
                         ... on Issue {
                             title

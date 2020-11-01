@@ -1,27 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import { Typeahead } from 'react-bootstrap-typeahead';
 
 function IssueSearch({ searchString, setSearchString, arraySearchOptions, setSearchStringConfirmed }: any) {
+    const [isMenuOpen, setMenuOpen] = useState<boolean>()
     return (
         <>
             <Typeahead
+                autoFocus
                 id="basic-typeahead-single"
-                //   labelKey="name"
                 onInputChange={setSearchString}
-                onChange={(txt) => {
-                    // console.debug('a ' + txt)
-                    setSearchStringConfirmed(txt)
-                }}
                 onKeyDown={((key: any) => {
-                    // console.debug('b ' + key.code)
-                    if (key.code == 'Enter') {
+                    if (key.code === 'Enter') {
                         setSearchStringConfirmed(searchString)
+                        setMenuOpen(false)
+                    } else {
+                        setMenuOpen(undefined)
                     }
                 })}
-                options={arraySearchOptions || []}
+                open={isMenuOpen}
+                options={arraySearchOptions}
                 placeholder="Search all issues"
-            //   selected={singleSelections}
             />
         </>
     );

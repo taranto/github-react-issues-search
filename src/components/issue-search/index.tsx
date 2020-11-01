@@ -6,15 +6,17 @@ import { getIssues, getIssueTitles } from '../../store/ducks/issues/actions';
 
 function IssueSearchContainer() {
     const dispatch = useDispatch()
-    const [searchString, setSearchString] = useState({})
+    const [searchString, setSearchString] = useState('')
     // const [arraySearchOptions, setArraySearchOptions] = useState({})
-    const [searchStringConfirmed, setSearchStringConfirmed] = useState({})
+    const [searchStringConfirmed, setSearchStringConfirmed] = useState('')
 
     const arrayTitles = useSelector((state: any) => state.issues.arrayTitles)
-    console.debug(arrayTitles)
+
     useEffect(() => {
-        dispatch(getIssueTitles(searchString))
-    }, [searchString, dispatch])
+        if (!(searchString === '' && (!arrayTitles || arrayTitles.length === 0))) {
+            dispatch(getIssueTitles(searchString))
+        }
+    }, [searchString])
 
     useEffect(() => {
         dispatch(getIssues(searchStringConfirmed))
