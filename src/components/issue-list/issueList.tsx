@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 import './index.css';
 import IssueCardContainer from '../issue-card';
 
-function IssueList() {
-    const { arrayIssues, isIssuesLoading } = useSelector((state: any) => state.issues)
+function IssueList({ arrayIssues, isIssuesLoading }: any) {
     return (
         <>
             {isIssuesLoading && <Spinner animation="border" role="status">
