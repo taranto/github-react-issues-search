@@ -1,15 +1,13 @@
 import React from 'react';
 import './index.css';
-import IssueSearch from './../../components/issue-search'
-import IssueList from './../../components/issue-list'
+import IssueScreen from './issueScreen'
 
-function IssueScreen() {
+function IssueScreenContainer() {
     return (
         <>
-            <IssueSearch></IssueSearch>
-            <IssueList></IssueList>
+            <IssueScreen></IssueScreen>
         </>
     );
 }
 
-export default IssueScreen;
+export default IssueScreenContainer;

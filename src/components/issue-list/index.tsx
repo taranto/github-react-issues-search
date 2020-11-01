@@ -1,15 +1,11 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
 import './index.css';
+import IssueList from './issueList'
 
-function IssueList() {
+function IssueListContainer() {
     return (
-        <ListGroup>
-            <ListGroup.Item>an issue</ListGroup.Item>
-            <ListGroup.Item>another issue</ListGroup.Item>
-            <ListGroup.Item>one more issue</ListGroup.Item>
-        </ListGroup>
+        <IssueList></IssueList>
     );
 }
 
-export default IssueList;
+export default IssueListContainer;
