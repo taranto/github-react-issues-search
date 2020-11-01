@@ -1,5 +1,5 @@
 import axios from 'axios'
-import env from './../env.json'
+import env from '../../env.json'
 
 
 const githubService = (data: any) => axios({
