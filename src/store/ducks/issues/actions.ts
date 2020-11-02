@@ -47,6 +47,7 @@ export const getIssues = (filter: any) => {
         }
         dispatch(loadIssuesRequest())
         githubService(graphQLQuery).then((result: any) => {
+            console.log(result?.data?.data.search.nodes)
             const arrayIssues = result?.data?.data.search.nodes.filter((aNode: any) => !!aNode.title)
             dispatch(loadIssuesSuccess({ arrayIssues }))
         }).catch((e: any) => {
@@ -54,9 +55,6 @@ export const getIssues = (filter: any) => {
         })
     }
 }
-
-
-
 
 export const getIssueTitles = (filter: any) => {
     return (dispatch: any) => {

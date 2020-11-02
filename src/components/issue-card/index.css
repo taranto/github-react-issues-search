@@ -1,0 +1,49 @@
+.card-title {
+    color:black;
+    font-weight: 900 !important;
+    font-size: 14px !important;
+}
+
+.card-body {
+    margin: 5px !important;
+    padding: 5px !important;
+}
+
+.card-subinfo {
+    color:gray;
+    font-size: x-small;
+    font-weight: 100 !important;
+}
+
+.card-text {
+    color:gray;
+    font-size: small;
+    font-weight: 100 !important;
+}
+
+.badge-secondary {
+    font-size: x-small !important;
+    background-color: lightslategrey !important;
+    font-weight: 500 !important;
+}
+
+.max-lines {
+    display: inline-block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 2.4em;
+    line-height: 1.2em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+.pointer {
+    cursor: pointer !important
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 15px;
+  }

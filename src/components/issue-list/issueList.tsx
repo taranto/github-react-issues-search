@@ -1,7 +1,6 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useSelector } from 'react-redux';
 import './index.css';
 import IssueCardContainer from '../issue-card';
 
