@@ -9,15 +9,27 @@ function IssueSearch({ searchString, setSearchString, arraySearchOptions, setSea
             <Typeahead
                 autoFocus
                 id="basic-typeahead-single"
-                onInputChange={setSearchString}
+                onInputChange={(txt) => {
+                    console.log('onInputChange ' + txt)
+                    setSearchString(txt)
+                }}
+                onChange={(txt) => {
+                    console.log('onInputChange ' + txt)
+                    setSearchString(txt)
+                }}
                 onKeyDown={((key: any) => {
-                    if (key.code === 'Enter') {
+                    if (!isMenuOpen && key.code === 'Enter') {
+                        console.log('onKeyDown menu open ' + searchString)
                         setSearchStringConfirmed(searchString)
+                    }
+                    if (isMenuOpen && key.code === 'Enter') {
+                        console.log('onKeyDown menu clos ' + searchString)
                         setMenuOpen(false)
                     } else {
                         setMenuOpen(undefined)
                     }
                 })}
+                selectHintOnEnter={true}
                 open={isMenuOpen}
                 options={arraySearchOptions}
                 placeholder="Search all issues"

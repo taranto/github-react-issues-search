@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './index.css';
 import IssueList from './issueList'
 
 function IssueListContainer() {

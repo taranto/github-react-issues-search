@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import IssueCard from './issueCard'
 
 function IssueCardContainer({ issue }: any) {

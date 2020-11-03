@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './index.css';
 import IssueSearch from './issueSearch'
 import { useDispatch, useSelector } from 'react-redux';
 import { getIssues, getIssueTitles } from '../../store/ducks/issues/actions';
