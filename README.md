@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# About the project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+It was developed as part of the [NuORDER](https://nu.nuorder.com/index.html) challenge. Here you will find a simple page in which access the github api to show the [Facebook/React issues](https://github.com/facebook/react/issues) featuring text suggestion and keyboard navigation.
+
 ### `yarn install`
 
-To start using this app, you should first install the libraries. This project was developed under the node version 10.21.*. Untested any other version. With that being said, the project was restricted to this very version.
+To start using this app, you should first install the libraries. This project was developed under the node version 10.21.*. It was not tested in any other version. With that being said, the project was restricted to this very version.
 
 ### env.json file
 
