@@ -1,39 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 import { Typeahead } from 'react-bootstrap-typeahead';
 
-function IssueSearch({ searchString, setSearchString, arraySearchOptions, setSearchStringConfirmed }: any) {
-    const [isMenuOpen, setMenuOpen] = useState<boolean>()
+function IssueSearch({ searchString, setSearchString, arraySearchOptions, setSearchStringConfirmed, isIssuesLoading }: any) {
     return (
         <>
             <Typeahead
-                autoFocus
                 id="basic-typeahead-single"
                 onInputChange={(txt) => {
-                    console.log('onInputChange ' + txt)
                     setSearchString(txt)
                 }}
-                onChange={(txt) => {
-                    console.log('onInputChange ' + txt)
-                    setSearchString(txt)
+                onChange={(txt: string | any) => { //if a selection happens, then it's not a onChange(:string)
+                    if (txt instanceof String) {
+                        setSearchString(txt)
+                    } else if (txt instanceof Array && txt[0] && txt[0].label !== undefined) {
+                        setSearchString(txt[0].label)
+                    } else if (txt instanceof Array) {
+                        setSearchString(txt[0])
+                    }
                 }}
                 onKeyDown={((key: any) => {
-                    if (!isMenuOpen && key.code === 'Enter') {
-                        console.log('onKeyDown menu open ' + searchString)
-                        setSearchStringConfirmed(searchString)
-                    }
-                    if (isMenuOpen && key.code === 'Enter') {
-                        console.log('onKeyDown menu clos ' + searchString)
-                        setMenuOpen(false)
-                    } else {
-                        setMenuOpen(undefined)
+                    if (key.code === 'Enter') {
+                        //@ts-ignore 
+                        const inputTextType = document.getElementsByClassName('rbt-input-main')[0].value
+                        setSearchStringConfirmed(inputTextType || searchString)
                     }
                 })}
-                selectHintOnEnter={true}
-                open={isMenuOpen}
+                autoFocus
+                caseSensitive={false}
+                defaultOpen={false}
+                open={undefined}
                 options={arraySearchOptions}
                 placeholder="Search all issues"
+                isLoading={isIssuesLoading}
+                allowNew={true}
+                newSelectionPrefix={''}
+                emptyLabel="No search suggestions to make yet"
+                //@ts-ignore - @types were not up to date with the lib
+                shouldSelect={() => false}
             />
+
         </>
     );
 }

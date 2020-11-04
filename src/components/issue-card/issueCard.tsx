@@ -36,16 +36,16 @@ function IssueCard({ issue }: any) {
                         <Col>
                             <Card.Body>
                                 <Card.Text className="card-subinfo" >
-                                    <img className={'avatar'} src={issue.author?.avatarUrl}></img>
+                                    <img className={'avatar'} src={issue.author?.avatarUrl} alt='Avatar'></img>
                                     <span
                                         className={'pointer'}
                                         onClick={() => window.open(issue.author?.url)}
                                     >
-                                        {` ${issue.author.login}`}
+                                        {` ${issue?.author?.login || ''}`}
                                     </span>
                                     {` created ${timeAgoCreatedAt}. ${issue.state} `}
                                     {issue?.labels?.edges?.map((anEdge: any) => {
-                                        return <Badge pill variant="secondary">{anEdge.node.name}</Badge>
+                                        return <Badge key={anEdge.node.name} pill variant="secondary">{anEdge.node.name}</Badge>
                                     })}
                                 </Card.Text>
                             </Card.Body>

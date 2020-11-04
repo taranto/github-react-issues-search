@@ -9,24 +9,25 @@ function IssueSearchContainer() {
     const [searchStringConfirmed, setSearchStringConfirmed] = useState('')
 
     const arrayTitles = useSelector((state: any) => state.issues.arrayTitles)
+    const isIssuesLoading = useSelector((state: any) => state.issues.isIssuesLoading)
 
     useEffect(() => {
         if (!(searchString === '' && (!arrayTitles || arrayTitles.length === 0))) {
             dispatch(getIssueTitles(searchString))
         }
-    }, [searchString])
+    }, [searchString, dispatch])
 
     useEffect(() => {
         dispatch(getIssues(searchStringConfirmed))
-    }, [searchStringConfirmed])
+    }, [searchStringConfirmed, dispatch])
 
     return (
         <IssueSearch
             searchString={searchString}
             setSearchString={setSearchString}
             arraySearchOptions={arrayTitles}
-            searchStringConfirmed={searchStringConfirmed}
             setSearchStringConfirmed={setSearchStringConfirmed}
+            isIssuesLoading={isIssuesLoading}
         />
     );
 }

@@ -6,5 +6,9 @@
 .list-group {
     margin: 0px !important;
     padding: 0px !important;
-    /* background-color: greenyellow !important; */
+}
+
+.spinner-border {
+    color:gray;
+    margin: 50%
 }

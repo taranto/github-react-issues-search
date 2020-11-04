@@ -1,5 +1,4 @@
 import React from 'react';
-import { Spinner } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import './index.css';
 import IssueCardContainer from '../issue-card';
@@ -7,9 +6,6 @@ import IssueCardContainer from '../issue-card';
 function IssueList({ arrayIssues, isIssuesLoading }: any) {
     return (
         <>
-            {isIssuesLoading && <Spinner animation="border" role="status">
-                <span className="sr-only">Loading...</span>
-            </Spinner>}
             <ListGroup>
                 {!isIssuesLoading && arrayIssues && arrayIssues.map((issue: any) =>
                     <ListGroup.Item key={issue.number}>
