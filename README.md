@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-It was developed as part of the [NuORDER](https://nu.nuorder.com/index.html) challenge. Here you will find a simple page in which access the Github api to show the [Facebook/React issues](https://github.com/facebook/react/issues) featuring text suggestion and keyboard navigation.
+Here you will find a simple page in which access the Github api to show the [Facebook/React issues](https://github.com/facebook/react/issues) featuring text suggestion and keyboard navigation.
 
 ### `yarn install`
 
